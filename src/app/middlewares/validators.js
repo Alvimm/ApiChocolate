@@ -35,7 +35,7 @@ class Validators{
   async chocolateValidator(req, res, next){
     const chocolateMask = yup.object().shape({
       name: yup.string().required(),
-      value: yup.string().required(),
+      value: yup.number().required()
     });
 
     const chocolateValidate = await chocolateMask.isValid(req.body, { strict: true });
