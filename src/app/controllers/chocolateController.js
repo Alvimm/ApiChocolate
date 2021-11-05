@@ -3,9 +3,9 @@ const chocolateModel = require('../models/chocolateModel');
 class ChocolateController {
   async store(req, res){
 
-    const { key } = req.file;
+    // const { key } = req.file;
 
-    req.body.image = `${process.env.URL_HOST}/images/${key}`;
+    // req.body.image = `${process.env.URL_HOST}/images/${key}`;
 
     const chocolate = await chocolateModel.create(req.body);
 

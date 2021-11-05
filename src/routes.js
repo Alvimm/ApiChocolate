@@ -2,14 +2,14 @@ const routes = require('express').Router();
 const multer = require('multer');
 const userController = require('./app/controllers/userController');
 const chocolateController = require('./app/controllers/chocolateController');
-const jwt = require('./app/middlewares/jwt');
+// const jwt = require('./app/middlewares/jwt');
 const multerConfig = require('./config/multer');
 // const validators = require('./app/middlewares/validators');
 
 routes.post('/users', userController.store);
 routes.post('/login', userController.auth);
 
-routes.use(jwt);
+// routes.use(jwt);
 
 routes.get('/users', userController.index);
 routes.put('/users/:id', userController.update);
