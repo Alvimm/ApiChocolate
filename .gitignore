@@ -4,3 +4,4 @@ tmp/uploads/*
 !tmp/uploads/.gitkeep
 routes.txt
 script.sh
+chocolateController.txt
