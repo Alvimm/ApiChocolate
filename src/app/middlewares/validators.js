@@ -11,7 +11,7 @@ class Validators{
     const userValidate = await userMask.isValid(req.body, { strict: true });
 
     if(!userValidate){
-      return res.status(400).json({ msg: 'Dados estão num formato inválido'});
+      return res.status(400).json({ msg: 'Data is in an invalid format'});
     }
 
     return next();
@@ -26,7 +26,7 @@ class Validators{
     const userValidate = await userMask.isValid(req.body, { strict: true });
 
     if(!userValidate){
-      return res.status(400).json({ msg: 'Dados estão num formato inválido'});
+      return res.status(400).json({ msg: 'Data is in an invalid format'});
     }
 
     return next();
@@ -41,7 +41,7 @@ class Validators{
     const chocolateValidate = await chocolateMask.isValid(req.body, { strict: true });
 
     if(!chocolateValidate){
-      return res.status(400).json({ msg: 'Dados incorretos'});
+      return res.status(400).json({ msg: 'Incorrect data'});
     }
 
     return next();

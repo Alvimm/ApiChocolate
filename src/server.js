@@ -30,6 +30,6 @@ app.use((error, req, res, next) => {
   return res.status(500).json({msg: 'Houve um erro interno na API '});
 });
 
-app.listen(port, () => logger.info(`API funcionando na porta: ${port} em ${process.env.NODE_ENV}`));
+app.listen(port, () => logger.info(`API working on port: ${port} em ${process.env.NODE_ENV}`));
 
 // http://localhost:3000/users

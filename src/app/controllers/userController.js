@@ -10,18 +10,18 @@ class UserController{
     const { email, name } = req.body;
     const user = await userModel.create(req.body);
 
-    logger.info(`[userController] - Criando um novo usuário: ${email}`);
+    logger.info(`[userController] - Creating a new user: ${email}`);
 
     user.password = undefined;
 
     await mailConfig.sendMail({
       to: email,
       from: 'filipe2012alvim@gmail.com',
-      subject: 'Cadastro de novo usuário',
-      template: 'cadastroUsuario',
-      text: 'Cadastro de novo usuário',
+      subject: 'New user register',
+      template: 'registerUser',
+      text: 'New user register',
       context: {
-        message: 'Teste de valor de variável',
+        message: 'Variable value test',
         user: name,
         email,
       }
@@ -43,9 +43,9 @@ class UserController{
 
   async delete(req, res){
     const { id } = req.params;
-    logger.info(`Req para deletar usuário: ${id}`);
+    logger.info(`Req to delete user: ${id}`);
     await userModel.findByIdAndDelete(id);
-    return res.json({ msg: 'Usuário foi deletado com sucesso!' });
+    return res.json({ msg: 'User has been deleted successfully!' });
   }
 
   async update(req, res){
@@ -61,9 +61,9 @@ class UserController{
     await mailConfig.sendMail({
       to: user.email,
       from: 'filipe2012alvim@gmail.com',
-      subject: 'Cadastro editado',
-      template: 'editarUsuario',
-      text: 'Seu cadastro foi editado',
+      subject: 'Edited register',
+      template: 'editUser',
+      text: 'Your register has been edited',
       context: {
         user: user.name,
       },
@@ -78,13 +78,13 @@ class UserController{
     const user = await userModel.findOne({ email }).select('password');
 
     if(!user) {
-      return res.status(401).json({ msg: 'Credenciais inválidas' });
+      return res.status(401).json({ msg: 'Invalid credentials' });
     }
 
     const correctUser = await bcrypt.compare(password, user.password);
 
     if(!correctUser) {
-      return res.status(401).json({ msg: 'Credenciais inválidas' });
+      return res.status(401).json({ msg: 'Invalid credentials' });
     }
 
     const { _id: id} = user;

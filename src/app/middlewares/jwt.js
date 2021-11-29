@@ -4,24 +4,24 @@ const logger = require('../../helper/logger');
 
 module.exports = async (req, res, next) => {
 
-  logger.info('[JWT MID - Iniciando verificação do token]');
+  logger.info('[JWT MID - Starting token verification]');
 
   const { authorization: authHeader } = req.headers;
 
   if (!authHeader) {
-    return res.status(401).json({ error: 'Token não enviado'});
+    return res.status(401).json({ error: 'Token not sent'});
   }
 
   const jwtParts = authHeader.split(' ');
 
   if (jwtParts.length !== 2){
-    return res.status(401).json({ error: 'Token com formato inválido'});
+    return res.status(401).json({ error: 'Token with invalid format'});
   }
 
   const [scheme, token] = jwtParts;
 
   if (scheme !== 'Bearer'){
-    return res.status(401).json({ error: 'Token com prefixo inválido'});
+    return res.status(401).json({ error: 'Token with invalid prefix'});
   }
 
   try{
@@ -40,7 +40,7 @@ module.exports = async (req, res, next) => {
     return next();
   } catch(error){
     logger.error(error);
-    return res.status(401).json({ error: 'Token está com problemas'});
+    return res.status(401).json({ error: 'Token is having issues'});
   }
 };
 

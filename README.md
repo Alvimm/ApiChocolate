@@ -1,24 +1,24 @@
-## API PROJETO CHOCOLATE
+## CHOCOLATE PROJECT API
 
-#### Comando para restaurar a node_modules
+#### Command to restore node_modules
 
 ```
 npm install ou npm i
 ```
 
-#### Comando para rodar com Node
+#### Command to run with Node
 
 ```
 npm start
 ```
 
-#### Comando para rodar com Nodemon
+#### Command to run with Nodemon
 
 ```
 npm run dev
 
 
 ```
-##### API irá funcionar na porta 3005
+##### API'll work on port 3005
 
 

@@ -20,7 +20,7 @@ class ChocolateController {
   async delete(req, res){
     const { id } = req.params;
     await chocolateModel.findByIdAndDelete(id);
-    return res.json({msg:'Chocolate deletado com sucesso'});
+    return res.json({msg:'Chocolate successfully deleted'});
   }
 
   async update(req, res){
